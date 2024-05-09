@@ -1,0 +1,76 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:"Poppins",sans-serif;
+}
+body{
+    background-color: rgb(255, 255, 255);
+    font-family: 'Play', sans-serif;
+}
+.wrapper{
+    width: 330px;
+    padding: 2rem 1rem;
+    margin: 2rem 1rem;
+    margin: 50px auto;
+    background-color: #a9edef;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+}
+h1{
+    font-size: 2rem;
+    color: black;
+    margin-bottom: 1.2rem;
+}
+form input{
+    width: 92%;
+    outline: none;
+    border: 1px solid #fff;
+    padding: 12px 20px;
+    margin-bottom: 10px;
+    border-radius: 20px;
+    background-color: #ffffff;
+}
+.miembro{
+    font-size: 0.8rem;
+    margin-top: 1.4rem;
+    color: #636363;
+}
+.miembro a{
+    color: rgb(17, 107, 143);
+    text-decoration: none;
+}
+input[type="submit"][value="Acceder"]{
+    font-size: 1rem;
+    margin-top: 1.8rem;
+    padding: 10px 0;
+    border-radius: 20px;
+    outline: none;
+    border: none;
+    width: 90%;
+    color: #fff;
+    cursor: pointer;
+    background-color: rgb(17, 107,143);
+}
+input[type="submit"][value="Acceder"]:hover{
+    background: rgba(255, 189, 46, 0.877);
+}
+img{
+    display: block;
+    margin: auto;
+    width: 150px;
+    height: 100px;
+    margin-top: 30px;
+}
+.mensaje-error{
+    background-color: #ffc107; /* Light orange for a mild warning */
+    border: 1px solid #f80; /* Red border to highlight the error */
+    border-radius: 5px; /* Rounded corners for a softer look */
+    padding: 10px 20px;
+    margin: 10px 0; /* Add some margin for better spacing */
+    font-weight: bold;
+    color: #000;
+  }
+  
+
