@@ -1,4 +1,9 @@
-
+<?php
+// Verifica si la sesión no está activa
+if (session_status() == PHP_SESSION_NONE) {
+    session_start(); // Inicia la sesión
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +16,7 @@
 <body>
 <nav class="navbar navbar-expand-md navbar-dark navbar-custom">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" href="index.php">
       <img src="images/logo2.png" alt="Logo">
     </a>
     <button class="navbar-toggler" type="button" id="navbar-toggler-icon">
@@ -19,6 +24,9 @@
     </button>
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
       <ul class="navbar-nav">
+      <li class="nav-item">
+          <a class="nav-link" href="index.php">Inicio</a>
+        </li>
         <li class="nav-item">
           <a class="nav-link" href="#">PC</a>
         </li>

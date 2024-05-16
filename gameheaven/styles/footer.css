@@ -37,6 +37,14 @@ footer hr {
     display: flex;
     align-items: center;
 }
+.middle-section {
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+}
+img{
+    height: 60px;
+}
 @media (max-width: 767px) {
     .bottom-section {
         flex-direction: column;

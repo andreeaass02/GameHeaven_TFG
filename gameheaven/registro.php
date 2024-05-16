@@ -4,48 +4,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/style.css">
-    <script src="js/registro.js"></script>
     <title>Registro</title>
-    <script src="js/validacion.js"></script>
+    <script src="js/registro.js"></script>
 </head>
 <body>
     <img src="images/Captura_de_pantalla_2024-04-09_113755-removebg-preview.png" alt="logo">
     <div class="wrapper">
-    <h1>Registro de Usuario</h1>
-    <form method="post" action="<?=htmlspecialchars($_SERVER['PHP_SELF'])?>" onsubmit="return validarFormulario()">
-        <label for="nombre"></label><br>
-        <input type="text" id="nombre" name="nombre" required placeholder="Nombre"><br><br>
-        <p class="noVisible" id="mnombre">Campo obligatorio</p>
+        <h1>Registro de Usuario</h1>
+        <form id="formulario" method="post" action="<?=htmlspecialchars($_SERVER['PHP_SELF'])?>" onsubmit="return validarFormulario()">
+            <label for="nombre"></label><br>
+            <input type="text" id="nombre" name="nombre" required placeholder="Nombre" onfocus="ocultarError('mnombre')"><br><br>
+            <p class="noVisible" id="mnombre">Campo obligatorio</p>
 
-        <label for="email"></label><br>
-        <input type="email" id="email" name="email" required placeholder="Email"><br><br>
-        <p class="noVisible" id="memail">Campo obligatorio</p>
+            <label for="email"></label><br>
+            <input type="email" id="email" name="email" required placeholder="Email" onfocus="ocultarError('memail')"><br><br>
+            <p class="noVisible" id="memail">Campo obligatorio</p>
 
-        <label for="contrasena"></label><br>
-        <input type="password" id="contrasena" name="contrasena" required placeholder="Contraseña"><br><br>
-        <p class="noVisible" id="mcontrasena">Campo obligatorio</p>
+            <label for="contrasena"></label><br>
+            <input type="password" id="contrasena" name="contrasena" required placeholder="Contraseña" onfocus="ocultarError('mcontrasena')"><br><br>
+            <p class="noVisible" id="mcontrasena">Campo obligatorio</p>
 
-        <label for="confirmar_contrasena"></label><br>
-        <input type="password" id="confirmar_contrasena" name="confirmar_contrasena" required placeholder="Confirmar contraseña"><br><br>
-        <p class="noVisible" id="mconfirmar_contrasena">Campo obligatorio</p>
+            <label for="confirmar_contrasena"></label><br>
+            <input type="password" id="confirmar_contrasena" name="confirmar_contrasena" required placeholder="Confirmar contraseña" onfocus="ocultarError('mconfirmar_contrasena')"><br><br>
+            <p class="noVisible" id="mconfirmar_contrasena">Campo obligatorio</p>
 
-        <label for="telefono"></label><br>
-        <input type="tel" id="telefono" name="telefono" required placeholder="Teléfono"><br><br>
-        <p class="noVisible" id="mtelefono">Campo obligatorio</p>
+            <label for="telefono"></label><br>
+            <input type="tel" id="telefono" name="telefono" required placeholder="Teléfono" onfocus="ocultarError('mtelefono')"><br><br>
+            <p class="noVisible" id="mtelefono">Campo obligatorio</p>
 
-        <label for="fecha_nacimiento"></label><br>
-        <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" required placeholder="Fecha de nacimiento"><br><br>
-        <p class="noVisible" id="mfecha">Campo obligatorio</p>
+            <label for="fecha_nacimiento"></label><br>
+            <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" required placeholder="Fecha de nacimiento" onfocus="ocultarError('mfecha')"><br><br>
+            <p class="noVisible" id="mfecha">Campo obligatorio</p>
 
-        <label for="direccion"></label><br>
-        <textarea id="direccion" name="direccion" rows="4" cols="35" required placeholder="Dirección"></textarea><br><br>
-        <p class="noVisible" id="mdireccion">Campo obligatorio</p>
+            <label for="direccion"></label><br>
+            <textarea id="direccion" name="direccion" rows="4" cols="35" required placeholder="Dirección" onfocus="ocultarError('mdireccion')"></textarea><br><br>
+            <p class="noVisible" id="mdireccion">Campo obligatorio</p>
 
-        <input type="submit" value="Registrar">
-    </form>
-    <div class="miembro">
+            <input type="submit" value="Registrar" id="registrar">
+        </form>
+        <div class="miembro">
             ¿Ya tienes cuenta? <a href="login/login.php">Inicia sesión</a>
-    </div>
+        </div>
     </div>
     <?php
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -108,7 +107,7 @@
             $conex1->close();
         }
     }
-    
     ?>
+    <script src="js/registro.js"></script>
 </body>
 </html>

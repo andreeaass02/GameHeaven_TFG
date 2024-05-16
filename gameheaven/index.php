@@ -1,3 +1,9 @@
+<?php
+// Inicia la sesión solo si no está iniciada
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>

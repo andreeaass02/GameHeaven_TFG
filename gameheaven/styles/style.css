@@ -72,5 +72,7 @@ img{
     font-weight: bold;
     color: #000;
   }
-  
+  .noVisible{
+    display: none;
+  }
 
