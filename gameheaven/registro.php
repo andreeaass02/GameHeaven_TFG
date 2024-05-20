@@ -99,7 +99,8 @@
             $resultado = $conex1->query($query);
     
             if ($resultado) {
-                echo "Se ha añadido correctamente.";
+                header("Location: login/login.php");
+                exit();
             } else {
                 echo "Error al insertar en la base de datos: " . $conex1->error;
             }
