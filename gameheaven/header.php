@@ -24,24 +24,29 @@ if (session_status() == PHP_SESSION_NONE) {
     </button>
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
       <ul class="navbar-nav">
-      <li class="nav-item">
+        <li class="nav-item">
           <a class="nav-link" href="index.php">Inicio</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">PC</a>
+          <a class="nav-link" href="pc.php">PC</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">PlayStation</a>
+          <a class="nav-link" href="playstation.php">PlayStation</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">XBox</a>
+          <a class="nav-link" href="xbox.php">XBox</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Nintendo</a>
+          <a class="nav-link" href="nintendo.php">Nintendo</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Sobre Nosotros</a>
         </li>
+        <?php if(isset($_SESSION['rol']) && $_SESSION['rol'] === 'administrador'): ?>
+          <li class="nav-item">
+            <a class="nav-link" href="admin.php">Administración</a>
+          </li>
+        <?php endif; ?>
       </ul>
       <ul class="navbar-nav ml-auto">
         <?php if(isset($_SESSION['usuario'])): ?>
@@ -57,7 +62,7 @@ if (session_status() == PHP_SESSION_NONE) {
           </li>
         <?php endif; ?>
         <li class="nav-item">
-          <a class="nav-link" href="#">Carrito</a>
+          <a class="nav-link" href="ver_carrito.php" id="cart-link">Carrito</a>
         </li>
       </ul>
     </div>
@@ -72,8 +77,16 @@ if (session_status() == PHP_SESSION_NONE) {
     $('#navbar-toggler-icon').click(function(){
       $('#collapsibleNavbar').collapse('toggle');
     });
+
+    // Fetch cart count
+    fetch('contador_carrito.php')
+      .then(response => response.json())
+      .then(data => {
+        if (data.count > 0) {
+          $('#cart-link').text(`Carrito(${data.count})`);
+        }
+      });
   });
 </script>
-
 </body>
 </html>

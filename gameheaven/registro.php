@@ -12,33 +12,34 @@
     <div class="wrapper">
         <h1>Registro de Usuario</h1>
         <form id="formulario" method="post" action="<?=htmlspecialchars($_SERVER['PHP_SELF'])?>" onsubmit="return validarFormulario()">
-            <label for="nombre"></label><br>
+        <p class="noVisible" id="mnombre">Campo obligatorio</p>    
+        <label for="nombre"></label><br>
             <input type="text" id="nombre" name="nombre" required placeholder="Nombre" onfocus="ocultarError('mnombre')"><br><br>
-            <p class="noVisible" id="mnombre">Campo obligatorio</p>
-
+            
+            <p class="noVisible" id="memail">Campo obligatorio</p>
             <label for="email"></label><br>
             <input type="email" id="email" name="email" required placeholder="Email" onfocus="ocultarError('memail')"><br><br>
-            <p class="noVisible" id="memail">Campo obligatorio</p>
-
+            
+            <p class="noVisible" id="mcontrasena">Campo obligatorio</p>
             <label for="contrasena"></label><br>
             <input type="password" id="contrasena" name="contrasena" required placeholder="Contraseña" onfocus="ocultarError('mcontrasena')"><br><br>
-            <p class="noVisible" id="mcontrasena">Campo obligatorio</p>
-
+            
+            <p class="noVisible" id="mconfirmar_contrasena">Campo obligatorio</p>
             <label for="confirmar_contrasena"></label><br>
             <input type="password" id="confirmar_contrasena" name="confirmar_contrasena" required placeholder="Confirmar contraseña" onfocus="ocultarError('mconfirmar_contrasena')"><br><br>
-            <p class="noVisible" id="mconfirmar_contrasena">Campo obligatorio</p>
-
+            
+            <p class="noVisible" id="mtelefono">Campo obligatorio</p>
             <label for="telefono"></label><br>
             <input type="tel" id="telefono" name="telefono" required placeholder="Teléfono" onfocus="ocultarError('mtelefono')"><br><br>
-            <p class="noVisible" id="mtelefono">Campo obligatorio</p>
-
+            
+            <p class="noVisible" id="mfecha">Campo obligatorio</p>
             <label for="fecha_nacimiento"></label><br>
             <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" required placeholder="Fecha de nacimiento" onfocus="ocultarError('mfecha')"><br><br>
-            <p class="noVisible" id="mfecha">Campo obligatorio</p>
-
+            
+            <p class="noVisible" id="mdireccion">Campo obligatorio</p>
             <label for="direccion"></label><br>
             <textarea id="direccion" name="direccion" rows="4" cols="35" required placeholder="Dirección" onfocus="ocultarError('mdireccion')"></textarea><br><br>
-            <p class="noVisible" id="mdireccion">Campo obligatorio</p>
+            
 
             <input type="submit" value="Registrar" id="registrar">
         </form>

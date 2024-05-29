@@ -58,6 +58,9 @@ if (session_status() === PHP_SESSION_NONE) {
           </div>
         </div>
       </div>
+      <div id="games-container">
+  <!-- Aquí se mostrarán los juegos -->
+</div>
     </div>
   </div>
   <?php include 'footer.html'; ?>
