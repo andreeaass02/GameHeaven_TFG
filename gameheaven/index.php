@@ -39,25 +39,51 @@ if (session_status() === PHP_SESSION_NONE) {
     </a>
   </div>
 </div>
-      <div class="col-md-4">
-        <div class="juegos-ofertas">
-          <h3>Ofertas</h3>
-          <div class="ofertas">
-          <div class="oferta_1">
-          <img src="images/zelda_switch.jpg" alt="">
-          </div>
-          <div class="oferta_1">
-          <img src="images/spider-man-miles-morales-ps5.jpg" alt="">
-          </div>
-          <div class="oferta_1">
-          <img src="images/stray.jpg" alt="">
-          </div>
-          <div class="oferta_1">
-          <img src="images//zelda_switch.jpg" alt="">
-          </div>
-          </div>
+<div class="col-md-4">
+    <div class="juegos-ofertas">
+        <h3>Más Vendidos</h3>
+        <div class="ofertas">
+            <div class="oferta_1">
+            <div class="juego-info">
+                    <img src="images/the-witcher3-pc.jpg" alt="">
+                    <div class="descripcion-y-compra">
+                        <p>En el mundo abierto de Wild Hunt, tú trazas tu propio rumbo hacia la aventura.</p>
+                        <a href="pc.php" class="comprar-btn">Cómpralo YA!!</a>
+                    </div>
+                </div>
+            </div>
+            <div class="oferta_1">
+            <div class="juego-info">
+                    <img src="images/the_last_of_us_2-playstation.jpg" alt="">
+                    <div class="descripcion-y-compra">
+                        <p>Ellie y Joel vuelven a un viaje épico en la secuela del aclamado juego de Naughty Dog.</p>
+                        <a href="playstation.php" class="comprar-btn">Cómpralo YA!!</a>
+                    </div>
+                </div>
+            </div>
+            <div class="oferta_1">
+            <div class="juego-info">
+                    <img src="images/gear5_xbox.jpg" alt="">
+                    <div class="descripcion-y-compra">
+                        <p>Gears 5 (Gears of War 5) es la quinta entrega de la saga de acción Gears of War</p>
+                        <a href="xbox.php" class="comprar-btn">Cómpralo YA!!</a>
+                    </div>
+                </div>
+            </div>
+            <div class="oferta_1">
+            <div class="juego-info">
+                    <img src="images/zelda_switch.jpg" alt="">
+                    <div class="descripcion-y-compra">
+                        <p>Sumérgete en un mundo de aventuras y exploración en The Legend of Zelda™: Breath of the Wild.</p>
+                        <a href="nintendo.php" class="comprar-btn">Cómpralo YA!!</a>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
+    </div>
+</div>
+
+
       <div id="games-container">
   <!-- Aquí se mostrarán los juegos -->
 </div>

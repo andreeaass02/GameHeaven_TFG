@@ -40,7 +40,7 @@ if (session_status() == PHP_SESSION_NONE) {
           <a class="nav-link" href="nintendo.php">Nintendo</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Sobre Nosotros</a>
+          <a class="nav-link" href="sobre_nosotros.php">Sobre Nosotros</a>
         </li>
         <?php if(isset($_SESSION['rol']) && $_SESSION['rol'] === 'administrador'): ?>
           <li class="nav-item">

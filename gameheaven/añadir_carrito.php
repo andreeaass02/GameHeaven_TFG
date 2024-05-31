@@ -5,7 +5,7 @@ include 'BBDD.php';
 header('Content-Type: application/json');
 
 if (!isset($_SESSION['id_usuario'])) {
-    echo json_encode(['success' => false, 'message' => 'Debes iniciar sesión']);
+    echo json_encode(['success' => false, 'message' => 'Tienes que iniciar sesión para comprar']);
     exit;
 }
 

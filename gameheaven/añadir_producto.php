@@ -24,6 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->execute();
     $stmt->bind_result($count);
     $stmt->fetch();
+    $stmt->close(); // Cerrar el statement
 
     if ($count > 0) {
         echo "No se puede insertar un juego nuevo porque ya existe un juego con el nombre $nombre.";
@@ -33,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Si no existe, proceder con la inserción del nuevo juego
     $query = "INSERT INTO videojuegos (nombre, descripcion, genero, plataforma, precio, stock) 
-              VALUES (?, ?, ?, ?, ?, ?)";
+    VALUES (?, ?, ?, ?, ?, ?)";
     $stmt = $conex1->prepare($query);
     $stmt->bind_param("ssssdi", $nombre, $descripcion, $genero, $plataforma, $precio, $stock);
 

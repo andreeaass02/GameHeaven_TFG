@@ -1,7 +1,7 @@
 <?php
 session_start();
 require 'BBDD.php';
-require 'fpdf.php';
+require 'fpdf.php';  // Ajusta la ruta según donde hayas colocado FPDF
 
 header('Content-Type: application/json');
 
@@ -31,6 +31,10 @@ try {
         $items[] = $row;
     }
 
+    if (empty($items)) {
+        throw new Exception('No se encontraron artículos en el carrito.');
+    }
+
     // Iniciar una transacción
     $conex1->begin_transaction();
 
@@ -38,7 +42,9 @@ try {
     $query = "INSERT INTO pedidos (id_usuario, fecha_pedido, total) VALUES (?, NOW(), ?)";
     $stmt = $conex1->prepare($query);
     $stmt->bind_param("id", $id_usuario, $total);
-    $stmt->execute();
+    if (!$stmt->execute()) {
+        throw new Exception("Error al insertar el pedido: " . $stmt->error);
+    }
     $id_pedido = $stmt->insert_id;
 
     $codes = []; // Array para almacenar los códigos comprados
@@ -75,7 +81,9 @@ try {
             $query = "INSERT INTO detalles_pedido (id_pedido, id_codigo, cantidad, precio) VALUES (?, ?, 1, ?)";
             $stmt = $conex1->prepare($query);
             $stmt->bind_param("iid", $id_pedido, $codigo['id_codigo'], $item['precio']);
-            $stmt->execute();
+            if (!$stmt->execute()) {
+                throw new Exception("Error al insertar el detalle del pedido: " . $stmt->error);
+            }
 
             // Almacenar el código en el array
             $codes[] = $codigo['codigo'];
@@ -84,21 +92,27 @@ try {
             $query = "DELETE FROM codigos WHERE id_codigo = ?";
             $stmt = $conex1->prepare($query);
             $stmt->bind_param("i", $codigo['id_codigo']);
-            $stmt->execute();
+            if (!$stmt->execute()) {
+                throw new Exception("Error al eliminar el código: " . $stmt->error);
+            }
         }
 
         // Actualizar el stock del juego
         $query = "UPDATE videojuegos SET stock = stock - ? WHERE id_videojuego = ?";
         $stmt = $conex1->prepare($query);
         $stmt->bind_param("ii", $item['cantidad'], $item['id_videojuego']);
-        $stmt->execute();
+        if (!$stmt->execute()) {
+            throw new Exception("Error al actualizar el stock: " . $stmt->error);
+        }
     }
 
     // Vaciar el carrito
     $query = "DELETE FROM carrito WHERE id_usuario = ?";
     $stmt = $conex1->prepare($query);
     $stmt->bind_param("i", $id_usuario);
-    $stmt->execute();
+    if (!$stmt->execute()) {
+        throw new Exception("Error al vaciar el carrito: " . $stmt->error);
+    }
 
     // Commit de la transacción
     $conex1->commit();
@@ -134,14 +148,15 @@ try {
         $pdf->ChapterTitle($index + 1, $code);
     }
 
+    // Enviar el PDF directamente al navegador para su descarga
     $file_name = "codigos_compra_{$id_usuario}.pdf";
-    $pdf->Output('F', $file_name);
-
-    // Enviar el nombre del archivo PDF generado al cliente
-    echo json_encode(['success' => true, 'pdf' => $file_name]);
+    header('Content-Type: application/pdf');
+    header('Content-Disposition: attachment; filename="' . $file_name . '"');
+    $pdf->Output('D', $file_name); // 'D' fuerza la descarga del PDF
+    exit;
 } catch (Exception $e) {
     // Rollback en caso de error
     $conex1->rollback();
-    echo json_encode(['success' => false, 'message' => $e->getMessage()]);
+    echo "Error al completar la compra: " . $e->getMessage();
 }
 ?>

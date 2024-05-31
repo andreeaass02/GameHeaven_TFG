@@ -13,15 +13,7 @@
         <div class="titulo">
             <h1>Política de Cookies</h1>
                 <div class="contenido">
-                    <div class="texto">
-                        <h2>¿Qué tipos de cookies utilizamos?</h2>
-                        <ol>
-                            <li><strong>Cookies esenciales:</strong> Estas cookies son necesarias para que nuestro sitio web funcione correctamente. Incluyen cookies que te permiten iniciar sesión en áreas seguras de nuestro sitio web y utilizar el carrito de compras.</li>
-                            <li><strong>Cookies de rendimiento:</strong> Estas cookies recopilan información sobre cómo utilizas nuestro sitio web, como qué páginas visitas con más frecuencia y si experimentas algún error. Nos ayudan a mejorar el rendimiento de nuestro sitio web.</li>
-                            <li><strong>Cookies de funcionalidad:</strong> Estas cookies permiten que nuestro sitio web recuerde las elecciones que realizas (como tu nombre de usuario, idioma o región) y proporcionen características mejoradas y más personalizadas.</li>
-                            <li><strong>Cookies de publicidad:</strong> Estas cookies se utilizan para mostrar anuncios relevantes para ti y tus intereses. También se utilizan para limitar la cantidad de veces que ves un anuncio y para ayudar a medir la efectividad de una campaña publicitaria.</li>
-                        </ol>
-                        
+                    <div class="texto">       
                         <h2>¿Cómo puedes controlar las cookies?</h2>
                         <p>Puedes controlar y/o eliminar las cookies según tus preferencias. Para obtener más información sobre cómo hacerlo, visita <a href="https://www.aboutcookies.org/" target="_blank">aboutcookies.org</a> o tu navegador web específico. Sin embargo, deshabilitar ciertas cookies puede afectar la funcionalidad de nuestro sitio web y limitar tu experiencia en línea.</p>
                         
