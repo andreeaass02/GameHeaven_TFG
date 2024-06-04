@@ -58,6 +58,6 @@ $result = $conex1->query($query);
             </div>
         <?php endwhile; ?>
     </div>
-    <?php include 'footer.html' ?>
+    <?php include 'footer.php' ?>
 </body>
 </html>

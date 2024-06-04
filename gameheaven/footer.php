@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/footer.css">
+    <title>Footer</title>
+</head>
+<body>
+    <footer>
+        <div class="container">
+            <section class="top-section text-center">
+                <p class="d-flex justify-content-center align-items-center">
+                    <?php
+                    if (isset($_SESSION['id_usuario'])) {
+                        echo '<span class="me-3">¡Bienvenido/a, ' . htmlspecialchars($_SESSION['usuario']) . '!</span>';
+                    } else {
+                        echo '<span class="me-3">Regístrate gratis &nbsp;</span>
+                              <a href="login/login.php" class="btn btn-outline-light btn-rounded">Únete</a>';
+                    }
+                    ?>
+                </p>
+            </section>
+            <hr class="mb-4" />
+            <section class="bottom-section">
+                <div class="left-section">
+                    <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-twitter"></i></a>
+                    <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-google"></i></a>
+                    <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-instagram"></i></a>
+                </div>
+                <div class="middle-section">
+                    <img src="images/Captura_de_pantalla_2024-04-09_113755-removebg-preview.png" alt="Logo de la empresa" height="60px">
+                </div>                
+                <div class="right-section">
+                    <a href="terminos.php" class="text-white me-3">Términos</a>
+                    <p>&nbsp;&nbsp;&nbsp;</p>
+                    <a href="cookies.php" class="text-white">Política de Cookies</a>
+                </div>
+            </section>
+        </div>
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);margin-bottom: -20px;">
+            © 2024 Copyright:
+            <a class="text-white" href="https://gameehaven.duckdns.org/">GameHeaven.org</a>
+        </div>
+    </footer>
+    
+</body>
+</html>

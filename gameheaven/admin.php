@@ -7,6 +7,10 @@ if (!isset($_SESSION['id_usuario']) || $_SESSION['rol'] !== 'administrador') {
     header("Location: login.php");
     exit;
 }
+// Obtener la lista de videojuegos
+$query = "SELECT id_videojuego, nombre FROM videojuegos";
+$result = $conex1->query($query);
+$videojuegos = $result->fetch_all(MYSQLI_ASSOC);
 ?>
 
 <!DOCTYPE html>
@@ -24,7 +28,7 @@ if (!isset($_SESSION['id_usuario']) || $_SESSION['rol'] !== 'administrador') {
     <div class="form-container">
         <div class="left-form">
             <h2>Añadir Nuevo Producto</h2>
-            <form action="añadir_producto.php" method="post">
+            <form action="añadir_producto.php" method="post" enctype="multipart/form-data">
                 <label for="nombre">Nombre:</label>
                 <input type="text" id="nombre" name="nombre" required><br>
                 
@@ -45,14 +49,26 @@ if (!isset($_SESSION['id_usuario']) || $_SESSION['rol'] !== 'administrador') {
                 <label for="precio">Precio:</label>
                 <input type="number" id="precio" name="precio" step="0.01" required><br>
                 
+                <label for="imagen">Imagen:</label>
+                <input type="file" id="imagen" name="imagen" accept="image/*" required><br>
+                
                 <button type="submit">Añadir Producto</button>
             </form>
         </div>
         <div class="right-form">
             <h2>Añadir Nuevo Código</h2>
             <form action="añadir_codigo.php" method="post">
-                <label for="id_videojuego">ID del Videojuego:</label>
-                <input type="number" id="id_videojuego" name="id_videojuego" required><br>
+            <label for="id_videojuego">Videojuego:</label>
+            <select id="id_videojuego" name="id_videojuego" required>
+                <?php 
+                    usort($videojuegos, function($a, $b) {
+                        return strcmp($a['nombre'], $b['nombre']);
+                    });
+                    foreach ($videojuegos as $videojuego): 
+                ?>
+                    <option value="<?= $videojuego['id_videojuego'] ?>"><?= htmlspecialchars($videojuego['nombre']) ?></option>
+                <?php endforeach; ?>
+            </select><br>
                 
                 <label for="codigo">Código:</label>
                 <input type="text" id="codigo" name="codigo" required><br>
@@ -62,6 +78,6 @@ if (!isset($_SESSION['id_usuario']) || $_SESSION['rol'] !== 'administrador') {
         </div>
     </div>
     
-    <?php include 'footer.html';?>
+    <?php include 'footer.php';?>
 </body>
 </html>

@@ -32,11 +32,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit;
     }
 
+    // Procesar la imagen
+    if (isset($_FILES['imagen']) && $_FILES['imagen']['error'] === UPLOAD_ERR_OK) {
+        $imagen = file_get_contents($_FILES['imagen']['tmp_name']);
+    } else {
+        echo "Error al subir la imagen.";
+        echo "<a href='admin.php'>Volver</a>";
+        exit;
+    }
+
     // Si no existe, proceder con la inserción del nuevo juego
-    $query = "INSERT INTO videojuegos (nombre, descripcion, genero, plataforma, precio, stock) 
-    VALUES (?, ?, ?, ?, ?, ?)";
+    $query = "INSERT INTO videojuegos (nombre, descripcion, genero, plataforma, precio, stock, imagen) 
+    VALUES (?, ?, ?, ?, ?, ?, ?)";
     $stmt = $conex1->prepare($query);
-    $stmt->bind_param("ssssdi", $nombre, $descripcion, $genero, $plataforma, $precio, $stock);
+    $stmt->bind_param("ssssdis", $nombre, $descripcion, $genero, $plataforma, $precio, $stock, $imagen);
 
     if ($stmt->execute()) {
         echo "Producto añadido correctamente.";
