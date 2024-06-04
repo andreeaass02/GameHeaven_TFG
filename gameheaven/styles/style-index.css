@@ -56,24 +56,24 @@
 
     .juego-info {
       display: flex;
-      align-items: center; /* Alinea verticalmente los elementos */
+      align-items: center;
   }
   
   .descripcion-y-compra {
-      margin-left: 10px; /* Espacio entre la imagen y la descripción */
+      margin-left: 10px;
   }
   
   .descripcion-y-compra p {
-      margin-bottom: 5px; /* Espacio entre la descripción y el botón */
+      margin-bottom: 5px;
   }
   
   .comprar-btn {
-    background-color: #4CAF50; /* Color de fondo */
+    background-color: #4CAF50;
     border: none;
-    color: white; /* Color del texto */
-    padding: 6px 12px; /* Espacio interno */
+    color: white;
+    padding: 6px 12px;
     text-align: center;
-    text-decoration: none; /* Quita el subrayado */
+    text-decoration: none;
     font-size: 14px;
     cursor: pointer;
     border-radius: 3px;
@@ -81,7 +81,7 @@
 }
 
 .comprar-btn:hover {
-    background-color: #45a049; /* Cambio de color al pasar el ratón */
+    background-color: #45a049;
 }
   
   
