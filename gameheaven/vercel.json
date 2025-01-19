@@ -1,5 +1,5 @@
 {
   "rewrites": [
-    { "source": "/(.*)", "destination": "/index.php" }
+    { "source": "/(.*)", "destination": "/gameheaven/index.php" }
   ]
 }
